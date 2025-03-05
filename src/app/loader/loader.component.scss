@@ -23,11 +23,13 @@
 .text-wrapper {
   margin: 0 auto;
   text-align: center;
+  margin-bottom: 1rem;
 }
 
 .loader-wrapper {
   margin: 0 auto;
   text-align: center;
+  position: relative;
 }
 
 .blue-text {
@@ -135,6 +137,15 @@ p {
   }
 }
 
+@keyframes growMatIcon {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.4);
+  }
+}
+
 .loading .dot:nth-child(1) {
   animation: dot1 2s infinite;
 }
@@ -146,11 +157,18 @@ p {
 .loading .dot:nth-child(3) {
   animation: dot3 2s infinite;
 }
-
-mat-icon {
+mat-icon{
   width: 100px;
   height: 100px;
   margin: 1rem;
-  opacity: 0.75;
+}
+mat-icon.pulse {
   animation: icon-fade 2s infinite;
+}
+mat-icon.grow {
+  // position: absolute;
+  // left: 50%;
+  transform-origin: center;
+  transform: translateX(-50%);
+  animation: growMatIcon 2s ease-in-out forwards;
 }

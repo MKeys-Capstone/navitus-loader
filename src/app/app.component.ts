@@ -25,16 +25,25 @@ export class AppComponent implements OnInit {
       'custom-pdf', // Icon name
       this.sanitizer.bypassSecurityTrustResourceUrl('assets/svg/pdf.svg') // Path to your SVG
     );
+    this.iconRegistry.addSvgIcon(
+      'custom-arrow', // Icon name
+      this.sanitizer.bypassSecurityTrustResourceUrl('assets/svg/arrow.svg') // Path to your SVG
+    );
+    this.iconRegistry.addSvgIcon(
+      'custom-check-circle', // Icon name
+      this.sanitizer.bypassSecurityTrustResourceUrl('assets/svg/check_circle.svg') // Path to your SVG
+    );
   }
 
   ngOnInit(): void {
     setTimeout(() => {
       this.index++;
       this.currentStepName = this.allSteps[this.index];
-    }, 2000);
+    }, 3000);
     setTimeout(() => {
       this.index++;
       this.currentStepName = this.allSteps[this.index];
-    }, 4000);
+    }, 6000);
+    
   }
 }

@@ -12,13 +12,17 @@ import { PrepStatus, StepStatus } from '../util/constants';
 export class LoaderComponent implements OnChanges {
   @Input('currentStepName') currentStepName: string = '';
   @Input('steps') steps: PrepStatus[] = [];
+  complete: boolean = false;
   currentStepIndex: number = 0;
+  progressPercentage: number = 33;
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['currentStepName']) {
       this.currentStepIndex = this.steps.findIndex(
         (each) => each === changes['currentStepName'].currentValue
-      );
+      ) + 1;
+      if(this.currentStepIndex === this.steps.length) this.complete = true;
+      this.progressPercentage = (this.currentStepIndex / (this.steps.length)) * 100;
     }
   }
 

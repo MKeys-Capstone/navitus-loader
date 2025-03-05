@@ -2,19 +2,31 @@
   <div class="card">
     <div class="card-content">
       <div class="text-wrapper">
-        <p class="blue-text">{{ currentStepIndex + 1 }}/{{ steps.length }}</p>
+        <p class="blue-text">{{ currentStepIndex }}/{{ steps.length }}</p>
         <div style="display: flex; justify-content: center">
           <p class="">{{ getHumanReadableStep(currentStepName) }}</p>
-          <div class="loading" role="status" aria-label="Loading">
+          @if(!complete){<div class="loading" role="status" aria-label="Loading">
             <div class="dot"></div>
             <div class="dot"></div>
             <div class="dot"></div>
-          </div>
+          </div>} 
         </div>
       </div>
       <div class="loader-wrapper">
-        <mat-icon color="accent" svgIcon="custom-pdf"></mat-icon>
-        <mat-progress-bar mode="determinate" value="60" />
+        @switch(currentStepName){
+          @case('BUILDING_PDF'){
+            <mat-icon class="pulse" svgIcon="custom-pdf"></mat-icon>
+          }
+          @case('SENDING_TO_PROVIDER'){
+            <mat-icon class="pulse" svgIcon="custom-arrow"></mat-icon>
+          }
+          @case('READY'){
+            <mat-icon class="grow" svgIcon="custom-check-circle"></mat-icon>
+          }
+        }
+        @if(!complete){
+          <mat-progress-bar mode="determinate" [value]="progressPercentage" />
+        }
       </div>
     </div>
   </div>
