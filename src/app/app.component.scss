@@ -1,0 +1,29 @@
+/* The card doesn't fill the screen vertically because:
+1. The .card class doesn't have a height/min-height set
+2. The container uses min-height which only ensures minimum height, not full height
+3. To make card fill vertically, we need to:
+   - Make container use height:100% instead of min-height
+   - Add height:100% to card
+   - Use display:flex on container to allow card to expand */
+
+:host {
+  height: 100vh;
+}
+.container {
+  background-color: lightgray;
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  border: 1px solid gray;
+  border-radius: 8px;
+  padding: 2rem;
+  background-color: white;
+  height: 100%;
+  //   text-align: center;
+  //   display: flex;
+  //   justify-content: center;
+}
