@@ -15,16 +15,20 @@
   padding: 2rem;
   background-color: white;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-content {
+  width: 500px;
 }
 
 .text-wrapper {
-  max-width: 500px;
   margin: 0 auto;
   text-align: center;
 }
 
 .loader-wrapper {
-  max-width: 500px;
   margin: 0 auto;
   text-align: center;
 }
@@ -34,9 +38,17 @@ mat-progress-bar {
 }
 
 img {
-  margin: 1rem;
+  margin: 2rem;
 }
 
-h3 {
+p {
+  font-size: 28px;
+  font-weight: 500;
+}
+.blue-text {
   color: #2478a2;
+}
+
+.mdc-linear-progress__bar-inner {
+  border-radius: 0 15px 0 15px;
 }
