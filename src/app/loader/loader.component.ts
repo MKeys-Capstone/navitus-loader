@@ -13,14 +13,15 @@ export class LoaderComponent implements OnChanges {
   @Input('currentStepName') currentStepName: string = '';
   @Input('steps') steps: PrepStatus[] = [];
   currentStepIndex: number = 0;
+
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['currentStepName']) {
       this.currentStepIndex = this.steps.findIndex(
         (each) => each === changes['currentStepName'].currentValue
       );
-      console.log(this.currentStepIndex);
     }
   }
+
   getHumanReadableStep(status: string): string {
     return StepStatus[status as keyof typeof StepStatus] || status;
   }
