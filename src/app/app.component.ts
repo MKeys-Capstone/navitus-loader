@@ -3,9 +3,10 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
+import { LoaderComponent } from './loader/loader.component';
 @Component({
   selector: 'app-root',
-  imports: [MatProgressBarModule, MatIconModule],
+  imports: [LoaderComponent],
   providers: [HttpClient],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
