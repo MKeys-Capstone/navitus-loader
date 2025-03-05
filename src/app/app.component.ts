@@ -36,14 +36,13 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.index++;
-      this.currentStepName = this.allSteps[this.index];
+    const interval = setInterval(() => {
+      if (this.index < this.allSteps.length - 1) {
+        this.index++;
+        this.currentStepName = this.allSteps[this.index];
+      } else {
+        clearInterval(interval);
+      }
     }, 3000);
-    setTimeout(() => {
-      this.index++;
-      this.currentStepName = this.allSteps[this.index];
-    }, 6000);
-    
   }
 }
